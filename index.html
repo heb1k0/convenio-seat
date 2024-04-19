@@ -57,14 +57,14 @@
                         <div class="mb-4">
                             <h1 class="text-xl font-bold mb-2">Título I</h1>
                             <h2 class="text-lg font-semibold">Disposiciones Generales</h2>
-                            <p><strong onclick="goTo()">Art. 1.</strong>- Partes firmantes
+                            <p><strong >Art. 1.</strong>- Partes firmantes
                                 ............................................... 7</p>
-                            <p><strong onclick="goTo()"">Art. 2.</strong>- Ámbito y vigencia
+                            <p><strong class="cursor-pointer" onclick="goTo('1')">Art. 2.</strong>- Ámbito y vigencia
                                 .............................................. 7</p>
-                            <p><strong onclick=" goTo()">Art. 3.</strong>- Absorción y compensación
+                            <p><strong class="cursor-pointer" onclick="goTo('3')">Art. 3.</strong>- Absorción y compensación
                                 ................................... 7
                             </p>
-                            <p><strong onclick="goTo()">Art. 4.</strong>- Comisión de Interpretación y Aplicación
+                            <p><strong class="cursor-pointer" onclick="goTo('3')">Art. 4.</strong>- Comisión de Interpretación y Aplicación
                                 del
                                 Convenio ....... 7
                             </p>
@@ -1706,7 +1706,7 @@
                     mismo.
                 </p>
 
-                <h3 class="font-bold mt-4">Art. 2.- Ámbito y vigencia</h3>
+                <h3 class="font-bold mt-4" id="1">Art. 2.- Ámbito y vigencia</h3>
                 <ol class="list-decimal ml-6">
                     <li>El Convenio Colectivo será de aplicación a todos los centros de trabajo de SEAT, S.A. [Fábrica
                         SEAT
@@ -1735,12 +1735,12 @@
                         previsto legalmente [art. 86 apartados 2, 3 y 4 ET].</li>
                 </ol>
 
-                <h3 class="font-bold mt-4">Art. 3.- Absorción y compensación</h3>
+                <h3 class="font-bold mt-4" id="3">Art. 3.- Absorción y compensación</h3>
                 <p>Las condiciones establecidas en el presente Convenio absorberán y compensarán las mejoras que
                     pudieran
                     determinarse por cualquier disposición obligatoria.</p>
 
-                <h3 class="font-bold mt-4">Art. 4.- Comisión de Interpretación y Aplicación del Convenio</h3>
+                <h3 class="font-bold mt-4" id="4">Art. 4.- Comisión de Interpretación y Aplicación del Convenio</h3>
                 <ol class="list-decimal ml-6">
                     <li>Se creará una comisión paritaria, integrada por 4 representantes de la parte social firmante del
                         Convenio y
@@ -8874,14 +8874,22 @@
                 }
 
                 function goTo(id){
+
                     document.getElementById(id)?.scrollIntoView({ block: "center", behavior: "smooth" });
+                    document.getElementById(id)?.classList.add('bg-yellow-200');
                 }
                 function reset() {
                     document.querySelectorAll('.resaltado').forEach(el => {
                         el.outerHTML = el.innerHTML;
                     });
                 }
+                function resetYellow(){
+                    document.querySelectorAll('.bg-yellow-200').forEach(el => {
+                        el.classList.remove('bg-yellow-200');
+                    });
+                }
                 function buscarYResaltar() {
+                    resetYellow()
                     document.querySelectorAll('.resaltado').forEach(el => {
                         el.outerHTML = el.innerHTML;
                     });
